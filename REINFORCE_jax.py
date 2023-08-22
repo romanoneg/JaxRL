@@ -55,9 +55,7 @@ def discounted_returns(rewards, done):
 		return new_total_discount, new_total_discount 
 
 	carry, returns = jax.lax.scan(cumsum_with_discount, 
-									0, 
-									[rewards,  (~done).astype(jnp.float32)], 
-									reverse=True)
+			0, [rewards,  (~done).astype(jnp.float32)], reverse=True)
 	return returns
 
 @jax.jit
