@@ -118,7 +118,6 @@ def train_model(rng, train_state, env_params, EPOCHS, steps_per_episode=500):
 
 		key, rng = random.split(rng)
 		obs, actions, rewards, next_obs, done = rollout(key, train_state, env_params, steps_per_episode)
-		actions = actions * 1.0
 		loss_value, train_state = step(train_state, obs, actions, rewards, done)
 
 		reported_reward += jnp.sum(rewards) / jnp.sum(done.astype(jnp.float32)) 
