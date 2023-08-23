@@ -1,4 +1,8 @@
 # JaxRL - romanoneg
+
+![Firefly cute robots learning to play soccer 81139](https://github.com/romanoneg/JaxRL/assets/43445765/6decdc4c-4b5c-467c-8240-bddba3506a16)
+
+
 learning jax, specifically for RL
 
 Very Very simple RL agents built in Jax, with (sometimes!) pytorch equivalents.
