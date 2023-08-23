@@ -1,7 +1,9 @@
 # JaxRL - romanoneg
 
 ![image](https://github.com/romanoneg/JaxRL/assets/43445765/3a41737e-4be5-4576-83b6-7ea76e25dd60)
-### -------------------------------First Tests, REINFORCE agents--------------------------------------
+
+---
+### First Tests, REINFORCE agents
 
 As a very quick preliminary test here are the times each script took to solve `CartPole-v1` :
 
@@ -24,5 +26,5 @@ network on an A100 with 2k envs:
 A little bit faster than the baseline of `0.08s/1M` step transistions given in [gymnax](https://github.com/RobertTLange/gymnax).
 
 
-### -------------------------------------------------------------------------------------------------------
+---
 (image from [Firefly beta](https://www.adobe.com/sensei/generative-ai/firefly.html))
