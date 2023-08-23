@@ -1,7 +1,7 @@
 # JaxRL - romanoneg
 
-![Firefly cute robots learning to play soccer 81139](https://github.com/romanoneg/JaxRL/assets/43445765/6decdc4c-4b5c-467c-8240-bddba3506a16)
-
+![image](https://github.com/romanoneg/JaxRL/assets/43445765/3a41737e-4be5-4576-83b6-7ea76e25dd60)
+(image from [Firefly beta](https://www.adobe.com/sensei/generative-ai/firefly.html))
 
 learning jax, specifically for RL
 
