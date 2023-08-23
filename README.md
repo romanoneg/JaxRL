@@ -7,9 +7,9 @@ As a very quick preliminary test here are the times each script took to solve `C
 
 | Script        | Time     | % change | Notes |
 |--------------|-----------|------------|-----------|
-| REINFORCE_pytorch      | 9m12s   | -- | by far the easiest to pickup        |
-| REINFORCE_jax          | 58.6s  | ~90% faster | includes compile time       |
-| vmap_REINFORCE_jax     | 🔥**40.0s**🔥 | ~93% faster | include compile time       |
+| [REINFORCE_pytorch](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/REINFORCE_pytorch.py)   | 9m12s   | -- | by far the easiest to pickup        |
+| [REINFORCE_jax](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/REINFORCE_jax.py) | 58.6s  | ~90% faster | includes compile time       |
+| [vmap_REINFORCE_jax](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/vmap_REINFORCE_jax.py)     | 🔥**40.0s**🔥 | ~93% faster | include compile time       |
 | pmap_vmap_REINFORCE_jax| --            | Prob really fast| my second GPU is too old to test 🙃  |
 
 (Jax Scripts use the [gymnax](https://github.com/RobertTLange/gymnax) library)
