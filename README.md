@@ -16,11 +16,12 @@ As a very quick preliminary test here are the times each script took to solve `C
 
 ### Speed metrics:
 
-Using `vmap_REINFORCE_jax.py` script I was able to run `CartPole-v1` at `0.119s/1M` step transitions on an A100 with 2k envs:
+Using `vmap_REINFORCE_jax.py` script I was able to run `CartPole-v1` at `0.055s/1M` step transitions while training the\
+network on an A100 with 2k envs:
 
-> 119 ms ± 10.6 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+> 55.7 ms ± 1.05 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
   
-Only about 48% slower than the baseline of `0.08s/1M` step transistions given in [gymnax](https://github.com/RobertTLange/gymnax).
+A little bit faster than the baseline of `0.08s/1M` step transistions given in [gymnax](https://github.com/RobertTLange/gymnax).
 
 
 ### -------------------------------------------------------------------------------------------------------
