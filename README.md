@@ -3,7 +3,7 @@ learning jax, specifically for RL
 
 Very Very simple RL agents built in Jax, with (sometimes!) pytorch equivalents.
 
-### -------------------------------First Tests, REINFORCE agents---------------------------------------
+### -------------------------------First Tests, REINFORCE agents--------------------------------------
 
 As a very quick preliminary test here are the times each script took to solve `CartPole-v1` :
 
