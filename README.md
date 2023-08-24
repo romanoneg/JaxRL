@@ -25,6 +25,14 @@ network on an A100 with 2k envs:
   
 A little bit faster than the baseline of `0.08s/1M` step transistions given in [gymnax](https://github.com/RobertTLange/gymnax).
 
+---
+### Reinforcement Learning Book by Sutton & Barto - Chapter 13: Policy Gradient 
+
+Focused on recreating each of the algorithms talked about in the chapter in jax.
+
+- [REINFORCE_jax](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/REINFORCE_jax.py) - REINFORCE: Monte-Carlo Policy-Gradient Control (episodic) for $\pi_*$ 
+- [REINFORCE_baseline](https://github.com/romanoneg/JaxRL/blob/main/RLbook/REINFORCE_baseline.py) - REINFORCE with Baseline (episodic), for estimating $\pi_\theta \approx \pi_*$ 
 
 ---
+
 (image from [Firefly beta](https://www.adobe.com/sensei/generative-ai/firefly.html))
