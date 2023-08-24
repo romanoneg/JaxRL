@@ -31,7 +31,8 @@ A little bit faster than the baseline of `0.08s/1M` step transistions given in [
 Focused on recreating each of the algorithms talked about in the chapter in jax.
 
 - [REINFORCE_jax](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/REINFORCE_jax.py) - REINFORCE: Monte-Carlo Policy-Gradient Control (episodic) for $\pi_*$ 
-- [REINFORCE_baseline](https://github.com/romanoneg/JaxRL/blob/main/RLbook/REINFORCE_baseline.py) - REINFORCE with Baseline (episodic), for estimating $\pi_\theta \approx \pi_*$ 
+- [REINFORCE_baseline](https://github.com/romanoneg/JaxRL/blob/main/RLbook/REINFORCE_baseline.py) - REINFORCE with Baseline (episodic), for estimating $\pi_\theta \approx \pi_*$
+- IN PROGRESS - One-step Actor–Critic (episodic), for estimating $\pi_\theta \approx \pi_*$
 
 ---
 
