@@ -90,17 +90,23 @@ def init_state_value(key, obs_shape, layer_num, layer_size):
 
 	return train_state
 
-@jax.jit
-def step_state_value(state_value_ts, obs, G):
+@partial(jax.jit, static_argnums=4)
+def step_state_value(state_value_ts, obs, G, delta, mse):
 
-	def v_loss(w, obs, G):
+	def book_v_loss(w, obs, G, delta):
+		v = jnp.squeeze(state_value_ts.apply_fn(state_value_ts.params, obs))
+		return jnp.mean(v * delta)
 
+	def mse_v_loss(w, obs, G, delta):
 		v = jnp.squeeze(state_value_ts.apply_fn(w, obs))
-		return optax.squared_error(v, G).mean()
+		return jnp.mean(optax.squared_error(v, G))
 
-	grads = jax.grad(v_loss,allow_int=True)(
-		state_value_ts.params, obs, G
-	)
+	if mse:
+		grad_fn = jax.grad(mse_v_loss,allow_int=True)
+	else:
+		grad_fn = jax.grad(book_v_loss,allow_int=True)
+
+	grads = grad_fn(state_value_ts.params, obs, G, delta)
 	state_value_ts = state_value_ts.apply_gradients(grads=grads)
 	return state_value_ts
 
@@ -177,7 +183,7 @@ def train(rng, policy_ts, state_value_ts, env_params, EPOCHS, steps_per_episode=
 		# update is batched for faster and better
 		G = jax.vmap(discounted_returns, in_axes=1)(rewards, done).T
 		delta = G - jnp.squeeze(state_value_ts.apply_fn(state_value_ts.params, obs))
-		state_value_ts = step_state_value(state_value_ts, obs, G)
+		state_value_ts = step_state_value(state_value_ts, obs, G, delta, mse=True)
 		loss_value, policy_ts = step_policy(policy_ts, obs, actions, delta)
 
 
