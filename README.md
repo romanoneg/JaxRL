@@ -33,7 +33,8 @@ Focused on recreating each of the algorithms talked about in the chapter in jax 
 - [REINFORCE_jax](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/REINFORCE_jax.py) - REINFORCE: Monte-Carlo Policy-Gradient Control (episodic) for $\pi_*$ 
 - [REINFORCE_baseline](https://github.com/romanoneg/JaxRL/blob/main/RLbook/REINFORCE_baseline.py) - REINFORCE with Baseline (episodic), for estimating $\pi_\theta \approx \pi_*$\
       (The gradient descent formulated in the book seemed to not work as well as pure mse, implemented both)
-- IN PROGRESS - One-step Actor–Critic (episodic), for estimating $\pi_\theta \approx \pi_*$
+- IN PROGRESS - \[Batched\] Actor–Critic (episodic), for estimating $\pi_\theta \approx \pi_*$\
+	(ran into some issues implementing the one from the book, opted for Batched actor-critic algorithm)
 
 ---
 
