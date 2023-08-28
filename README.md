@@ -32,10 +32,10 @@ Focused on recreating each of the algorithms talked about in the chapter in jax 
 
 - [REINFORCE_jax](https://github.com/romanoneg/JaxRL/blob/main/REINFORCE/REINFORCE_jax.py) - REINFORCE: Monte-Carlo Policy-Gradient Control (episodic) for $\pi_*$ 
 - [REINFORCE_baseline](https://github.com/romanoneg/JaxRL/blob/main/RLbook/REINFORCE_baseline.py) - REINFORCE with Baseline (episodic), for estimating $\pi_\theta \approx \pi_*$\
-      * The gradient descent formulated in the book seemed to not work as well as pure mse, implemented both
-- [Batched_Actor-Critic](https://github.com/romanoneg/JaxRL/blob/main/RLbook/B-Actor-Critic.py) - \[Batched\] Actor–Critic (episodic), for estimating $\pi_\theta \approx \pi_*$\
-	* ran into some issues implementing the one from the book, opted for Batched actor-critic algorithm)\
-	Training does seem, somehow, less stable than normal REINFORCE or REINFORCE with baseline.)\
+	* The gradient descent formulated in the book seemed to not work as well as pure mse, implemented both
+- [Batched_Actor-Critic](https://github.com/romanoneg/JaxRL/blob/main/RLbook/B-Actor-Critic.py) - \[Batched\] Actor–Critic (episodic), for estimating $\pi_\theta \approx \pi_*$
+	* ran into some issues implementing the one from the book, opted for Batched actor-critic algorithm\
+	Training does seem, somehow, less stable than normal REINFORCE or REINFORCE with baseline.\
 	Likely due to the simplicity of the environment? Will have to do more testing. 
 
 ---
