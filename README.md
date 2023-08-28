@@ -38,6 +38,15 @@ Focused on recreating each of the algorithms talked about in the chapter in jax 
 	Training does seem, somehow, less stable than normal REINFORCE or REINFORCE with baseline.\
 	Likely due to the simplicity of the environment? Will have to do more testing.
 - [IN PROGRESS] - [Batched] Actor–Critic with Eligibility Traces (episodic), for estimating $\pi_\theta \approx \pi_*$\
+- [IN PROGRESS] - [Batched] Actor–Critic with Eligibility Traces (continuing), for estimating $\pi_\theta \approx \pi_*$\
+
+---
+### TODO: Further Learning: 
+
+Implementing other Reinforcement Algorithms in jax.
+
+- [TODO] - some type of TRPO algo?
+- [TODO] - some type of PPO algo?
 
 ---
 
