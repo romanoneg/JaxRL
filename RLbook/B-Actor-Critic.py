@@ -80,7 +80,13 @@ def init_critic(key, obs_shape, layer_num, layer_size):
 	model = critic(layer_num, layer_size)
 	model_params = model.init(key, jnp.zeros(obs_shape))
 
-	tx = optax.adam(learning_rate=0.1)
+	schedule_fn = optax.linear_schedule(
+		init_value=0.01, 
+		end_value=0.00025, 
+		transition_steps=600
+	)
+
+	tx = optax.adam(schedule_fn)
 
 	actor_ts = TrainState.create(
 					apply_fn=model.apply, 
@@ -181,7 +187,7 @@ def train(rng, actor_ts, critic_ts, env_params, EPOCHS, steps_per_episode=500):
 		# S = obs, A = actions, R = rewards, and done is a mask for episode ends
 		# code is in .utils, and is batched with num_p across processes on GPU
 		obs, actions, rewards, _, done = rollout(
-			rng, actor_ts, env_params, steps_per_episode+1, num_p=64
+			rng, actor_ts, env_params, steps_per_episode, num_p=64
 		)
 
 		delta = 0
