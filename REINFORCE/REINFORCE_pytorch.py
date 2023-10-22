@@ -17,7 +17,7 @@ class episode:
 
 class mlp(nn.Module):
 
-    # what a ̷d̷o̷g̷s̷h̷i̷t̷  "ugly" implementation of this 
+    # what a "ugly" implementation of this 
     def __init__(self, obs, actions, layers, l_size):
         super().__init__()
         self.linears = nn.ModuleList([nn.Linear(obs, l_size)] + 
