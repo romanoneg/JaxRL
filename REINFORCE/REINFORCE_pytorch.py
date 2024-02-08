@@ -17,7 +17,6 @@ class episode:
 
 class mlp(nn.Module):
 
-    # what a "ugly" implementation of this 
     def __init__(self, obs, actions, layers, l_size):
         super().__init__()
         self.linears = nn.ModuleList([nn.Linear(obs, l_size)] + 
@@ -31,18 +30,14 @@ class mlp(nn.Module):
         return F.softmax(last_layer(x), dim=-1)
 
     def act(self, state):
-        # rewrite better cause wtf is log_probs.log_prob(action) like dude
         log_probs = Categorical(self(state))
         action = log_probs.sample()
         return action.item(), log_probs.log_prob(action)
 
 def train(ep, optimizer):
-    # maybe combine G and rew
     G, rew = torch.zeros(ep.T), 0
-    # find better place for gamma
     gamma = 0.99
 
-    # this hurts my eyes.... but I'll fix later
     for t in range(ep.T)[::-1]:
         rew = ep.rewards[t] + gamma * rew
         G[t] = rew
@@ -54,7 +49,6 @@ def train(ep, optimizer):
     optimizer.step()
     return loss
 
-# # all the stuff to change right here
 EPOCHS = 3000
 reporting_interval = 100
 env_name = "CartPole-v1"
@@ -63,7 +57,6 @@ render = ""
 
 env = gym.make(env_name)
 env.action_space.seed(42)
-# print(env.action_space.n)
 
 network = mlp(env.observation_space.shape[0], env.action_space.n, 1, 16)
 optimizer = optim.Adam(network.parameters(), lr=0.001)
