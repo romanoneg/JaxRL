@@ -37,8 +37,6 @@ def init_train_state(rng, action_dim, obs_shape, layer_num, layer_size):
 
 	tx = optax.adam(schedule_fn)
 
-	# not necessary but makes it easier and prettier
-	# seems like the opt_state is built-in to the wrapper by default
 	train_state = TrainState.create(
 		apply_fn=model.apply,
 		params=model_params,
@@ -49,7 +47,7 @@ def init_train_state(rng, action_dim, obs_shape, layer_num, layer_size):
 
 @jax.jit
 def discounted_returns(rewards, done):
-	# quite proud of this one, came up with it all by myself
+
 	def cumsum_with_discount(carry, xs):
 		new_total_discount =  xs[1] * (0.99 * carry) + xs[0]
 		return new_total_discount, new_total_discount 
@@ -81,7 +79,7 @@ def step(train_state: TrainState, obs, actions, rewards, done):
 @partial(jax.jit, static_argnums=3)
 def rollout(rng_input, train_state, env_params, steps_in_episode):
     """Rollout a jitted gymnax episode with lax.scan."""
-    # from the gymnax getting started guide, with some changes
+    # from the gymnax getting starter guide, with some changes
     # Reset the environment
     rng_reset, rng_episode = jax.random.split(rng_input)
     obs, state = env.reset(rng_reset, env_params)
